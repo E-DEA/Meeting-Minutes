@@ -31,7 +31,7 @@
           {{=response.logo or ''}}
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav navbar-right" id="id1">
+          <ul class="myclass1 nav navbar-nav navbar-right">
               {{='auth' in globals() and auth.navbar('Welcome',mode='dropdown') or ''}}
           </ul>
           {{if response.menu:}}
