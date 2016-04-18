@@ -53,6 +53,7 @@ CREATE TABLE auth_cas(
     renew CHAR(1)
 );
 success!
+<<<<<<< Updated upstream
 timestamp: 2016-04-16T05:32:58.927133
 CREATE TABLE wiki_page(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -1326,4 +1327,28 @@ success!
 success!
 success!
 success!
+success!
+=======
+timestamp: 2016-04-18T23:01:00.260418
+CREATE TABLE meetings(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512),
+    tags TEXT,
+    organiser TEXT,
+    organisations TEXT,
+    attendees TEXT,
+    loc CHAR(512),
+    time_stamp TIMESTAMP
+);
+success!
+timestamp: 2016-04-18T23:01:00.394050
+CREATE TABLE org(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    meetings TEXT,
+    employees TEXT,
+    admin_id CHAR(512)
+);
+success!
+>>>>>>> Stashed changes
 success!

@@ -358,6 +358,7 @@
 [2016-04-15 22:57:39] EDIT Temporary/static/css/bootstrap.min.css: 0
 [2016-04-15 22:57:50] EDIT Temporary/static/css/bootstrap.min.css: 0
 [2016-04-15 23:08:41] EDIT Temporary/static/css/bootstrap.min.css: 0
+<<<<<<< Updated upstream
 [2016-04-16 04:01:43] EDIT MeetingMinutes/views/default/index.html: -2
 [2016-04-16 04:02:00] EDIT MeetingMinutes/views/default/index.html: 2
 [2016-04-16 04:12:44] EDIT MeetingMinutes/models/menu.py: 0
@@ -988,3 +989,10 @@
 [2016-04-19 01:13:18] EDIT MeetingMinutes/models/menu.py: 0
 [2016-04-19 01:13:28] EDIT MeetingMinutes/models/menu.py: 0
 [2016-04-19 01:20:05] EDIT MeetingMinutes/models/menu.py: 0
+=======
+[2016-04-18 22:59:46] CREATE meetings.py: 0
+[2016-04-18 23:00:04] EDIT MeetingMinutes/models/meetings.py: 9
+[2016-04-18 23:00:14] CREATE org.py: 0
+[2016-04-18 23:00:28] EDIT MeetingMinutes/models/org.py: 6
+[2016-04-19 00:55:53] CREATE default/minutes.html: 0
+>>>>>>> Stashed changes
