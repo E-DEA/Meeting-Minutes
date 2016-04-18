@@ -1,59 +1,3 @@
-timestamp: 2016-04-14T02:36:20.657105
-CREATE TABLE auth_user(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    first_name CHAR(128),
-    last_name CHAR(128),
-    email CHAR(512),
-    password CHAR(512),
-    registration_key CHAR(512),
-    reset_password_key CHAR(512),
-    registration_id CHAR(512)
-);
-success!
-timestamp: 2016-04-14T02:36:20.914199
-CREATE TABLE auth_group(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    role CHAR(512),
-    description TEXT
-);
-success!
-timestamp: 2016-04-14T02:36:21.071861
-CREATE TABLE auth_membership(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
-    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  
-);
-success!
-timestamp: 2016-04-14T02:36:21.240520
-CREATE TABLE auth_permission(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  ,
-    name CHAR(512),
-    table_name CHAR(512),
-    record_id INTEGER
-);
-success!
-timestamp: 2016-04-14T02:36:21.392882
-CREATE TABLE auth_event(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    time_stamp TIMESTAMP,
-    client_ip CHAR(512),
-    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
-    origin CHAR(512),
-    description TEXT
-);
-success!
-timestamp: 2016-04-14T02:36:21.544886
-CREATE TABLE auth_cas(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
-    created_on TIMESTAMP,
-    service CHAR(512),
-    ticket CHAR(512),
-    renew CHAR(1)
-);
-success!
-<<<<<<< Updated upstream
 timestamp: 2016-04-16T05:32:58.927133
 CREATE TABLE wiki_page(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -70,7 +14,7 @@ CREATE TABLE wiki_page(
     created_on TIMESTAMP,
     created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
     modified_on TIMESTAMP,
-    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
 );
 success!
 timestamp: 2016-04-16T05:32:59.082589
@@ -82,7 +26,7 @@ CREATE TABLE wiki_tag(
     created_on TIMESTAMP,
     created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
     modified_on TIMESTAMP,
-    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
 );
 success!
 timestamp: 2016-04-16T05:32:59.217749
@@ -95,7 +39,7 @@ CREATE TABLE wiki_media(
     created_on TIMESTAMP,
     created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
     modified_on TIMESTAMP,
-    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
 );
 success!
 timestamp: 2016-04-17T07:28:39.528100
@@ -1328,6 +1272,7 @@ success!
 success!
 success!
 success!
+<<<<<<< Updated upstream
 =======
 timestamp: 2016-04-18T23:01:00.260418
 CREATE TABLE meetings(
@@ -1349,6 +1294,28 @@ CREATE TABLE org(
     employees TEXT,
     admin_id CHAR(512)
 );
+success!
+>>>>>>> Stashed changes
+=======
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
 success!
 >>>>>>> Stashed changes
 success!
