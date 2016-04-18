@@ -1,12 +1,15 @@
 {{extend 'layout.html'}}
-
 {{block header}}
-    <header class="container-fluid background"-->
-      <div class="jumbotron text-center">
+{{if not auth.user:}}
+    <header class="container-fluid background">
+      <div class="jumbotron text-center" id="jumboid">
         {{if response.title:}}
-        <h1>{{=response.title}}
-          <small>{{=response.subtitle or ''}}</small></h1>
+          <h1>{{=response.title}}</h1>
+              <p>{{=response.subtitle or ''}}</p>
         {{pass}}
       </div>
     </header>
+{{pass}}
+{{else:}}
+{{pass}}
 {{end}}
