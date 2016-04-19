@@ -1,1 +1,10 @@
 # -*- coding: utf-8 -*-
+db.define_table('meetings',
+                Field('id',writable=False,requires=IS_NOT_EMPTY()),
+                Field('title',requires=IS_NOT_EMPTY()),
+                Field('tags','text',default=request.post_vars.title,requires=IS_NOT_EMPTY()),
+                Field('organiser','text',requires=IS_NOT_EMPTY()),
+                Field('organisations','text',requires=IS_NOT_EMPTY()),
+                Field('attendees','text'),
+                Field('loc',writable=False),
+                Field('time_stamp','datetime',default=request.now,writable=True)),

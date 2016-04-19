@@ -13,6 +13,19 @@
     <link rel="shortcut icon" href="{{=URL('static','images/favicon.ico')}}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{=URL('static','images/favicon.png')}}">
     <script src="{{=URL('static','js/modernizr-2.8.3.min.js')}}"></script>
+      <script>
+    function savePDF() {
+    var doc = new jsPDF();          
+    var elementHandler = {};
+    var source = window.document.getElementById("toPrint");
+    doc.fromHTML(source,15,15,
+    {
+      'width': 180,'elementHandlers': elementHandler
+    });
+
+    doc.output("dataurlnewwindow");
+}
+</script></script>
     <!--[if lt IE 9]>
         <script src="{{=URL('static','js/respond-1.4.2.min.js')}}"></script>
         <![endif]-->
@@ -51,6 +64,9 @@
               {{=MENU(response.menu, _class='nav navbar-nav',li_class='dropdown',ul_class='dropdown-menu')}}
               {{pass}}
           {{pass}}
+            <label class="inputclass">
+            <input id='keyword' placeholder='Search MeetingMaster' name='keyword'/></input>
+            </label>
         </div>
       </div>
     </nav>

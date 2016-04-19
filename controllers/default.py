@@ -56,3 +56,22 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
+
+def minutes(): 
+    fields = [field for field in db.Meetings]
+    inter = fields + [Field('organisations',requires=IS_NOT_EMPTY,label='Organisations')]
+    intra = fields + [Field('chair',requires=IS_NOT_EMPTY,label='Chair')]
+    pta = fields + [Field('Subject')]
+    interform = SQLFORM.factory(*inter,formstyle='bootstrap',table_name='intertable').process()
+    return locals()
+
+def search():
+    return dict(FORM(INPUT(_id='keyword',_name='keyword',_onkeyup="ajax('callback',['keyword'],'target');")),
+                target_div=DIV(_id='target'))
+def callback():
+    """an ajax callback that returns a <ul> of links to wiki pages"""
+    query = db.Meetings.title.contains(request.vars.keyword) or db.Meetings.tags.contains(request.vars.keyword)
+    pages = db(query).select(db.Meetings.ALL,orderby=-db.Meetings.id)
+    return dict(pages=pages)
+    links = [A(p.title, _href=URL('show',args=p.id)) for p in pages]
+    return UL(*links)

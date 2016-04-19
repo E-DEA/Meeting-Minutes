@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+db = DAL('sqlite://storage.db',lazy_tables=True)
 #########################################################################
 ## This scaffolding model makes your app work on Google App Engine too
 ## File is released under public domain and you can use without limitations
@@ -61,11 +61,11 @@ db.define_table(
     auth.settings.table_user_name,
     Field('Name',length=128,default='',requires=IS_NOT_EMPTY(error_message=auth.messages.is_empty)),
     Field('email', length=128, default='', requires=IS_EMAIL(error_message='Invalid email address'),unique=True),
-    Field('Username',default='', requires = IS_ALPHANUMERIC(error_message='Must be alphanumeric') and IS_NOT_EMPTY(error_message='Username cannot be empty')),
+    Field('Username',default='', requires = IS_ALPHANUMERIC(error_message='Must be alphanumeric') and IS_NOT_EMPTY(error_message='Username cannot be empty') and IS_NOT_IN_DB(db, 'auth.settings.table_user_name.Username') ),
     Field('password', 'password', length=512,readable=False,requires = IS_STRONG(min=8, special=1,upper=1),label='Password'),
     Field('Organisation','string',length=128),
     Field('abc', 'string',label='State',default='None',requires = IS_IN_SET([('Andhra Pradesh'),('Arunachal Pradesh'),('Assam'),('Bihar'),('Chattisgarh'),('Goa'),('Gujarat'),('Haryana'),('Himachal Pradesh'),('Jammu & Kashmir'),('Jharkhand'),('Karnataka'),('Kerala'),('Madhya Pradesh'),('Maharashtra'),('Manipur'),('Meghalaya'),('Mizoram'),('Nagaland'),('Odisha(Orissa)'),('Punjab'),('Rajashtan'),('Sikkim'),('Tamil Nadu'),('Telangana'),('Tripura'),('Uttar Pradesh'),('Uttarakhand'),('West Bengal')])),
-    Field('Phone_number', 'double', length=10),
+    Field('Phone_number', 'integer', length=10),
     Field('registration_key', length=512,writable=False, readable=False, default=''),
     Field('reset_password_key', length=512,writable=False, readable=False, default=''),
     Field('registration_id', length=512,writable=False, readable=False, default=''))
@@ -118,6 +118,24 @@ auth.settings.reset_password_requires_verification = True
 ## >>> rows=db(db.mytable.myfield=='value').select(db.mytable.ALL)
 ## >>> for row in rows: print row.id, row.myfield
 #########################################################################
+if auth.user:
+    defname = auth.user.Name
 
+db.define_table('Meetings',
+                Field('title','string',requires=IS_NOT_EMPTY(),label='Title'),
+                Field('minutetaker',default='',writable=True,requires=IS_NOT_EMPTY(),label='MinuteTaker'),
+                Field('tags','string',default=request.title,requires=IS_NOT_EMPTY(),label='Tags'),
+                Field('organiser','string',requires=IS_NOT_EMPTY(),label='Organiser'),
+                #Field('organisations','string',requires=IS_NOT_EMPTY(),label='Organisations involved'),
+                Field('attendees','string',label='Attendees'),
+                Field('loc','text',label='Location'),
+                Field('time_stamp','datetime',default=request.now,writable=True,label='Time')
+               )
+db.define_table('Organisation',
+                Field('name','string',requires=IS_NOT_EMPTY(),label='Name'),
+                Field('meetings','string',default=request.post_vars.title,requires=IS_IN_DB(db,'Meetings.title',multiple=True),label='Meetings'),
+                Field('employees','string',requires=IS_NOT_EMPTY() and IS_IN_DB(db,'custom_auth_table.Name',multiple=True)),
+                Field('admn',requires=IS_NOT_EMPTY() and IS_IN_DB(db,'custom_auth_table.Name',multiple=True),label='Administrator')
+               )
 ## after defining tables, uncomment below to enable auditing
-# auth.enable_record_versioning(db)
+auth.enable_record_versioning(db)

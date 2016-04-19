@@ -1,0 +1,5 @@
+{{extend 'layout.html'}}
+<div id='toPrint'>
+{{=interform}}
+<button class="btn anim" id="savepdfbtn">Print this page.</button>
+</div>

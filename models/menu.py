@@ -36,7 +36,7 @@ def _():
     ctr = request.controller
     # useful links to internal and external resources
     response.menu += [
-        (T('My Meetings'), False, URL('default', 'site')),
+        (T('My Meetings'), False, URL('default', 'minutes')),
         ]
 if DEVELOPMENT_MENU: _()
 
