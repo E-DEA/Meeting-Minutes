@@ -69,7 +69,7 @@ I512
 sg5
 I00
 sg6
-I5
+I4
 sg7
 S'CHAR(512)'
 p27
@@ -133,7 +133,7 @@ I512
 sg5
 I00
 sg6
-I4
+I5
 sg7
 S'CHAR(512)'
 p39

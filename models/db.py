@@ -120,12 +120,14 @@ auth.settings.reset_password_requires_verification = True
 #########################################################################
 if auth.user:
     defname = auth.user.Name
-
+else:
+    defname=""
 db.define_table('Meetings',
                 Field('title','string',requires=IS_NOT_EMPTY(),label='Title'),
                 Field('chair','string',requires=IS_NOT_EMPTY(),label='Chaired By'),
-                Field('minutetaker',default='',writable=True,requires=IS_NOT_EMPTY(),label='MinuteTaker'),
                 Field('tags','string',requires=IS_NOT_EMPTY(),label='Tags'),
+                Field('minutetaker',default=defname,writable=True,requires=IS_NOT_EMPTY(),label='MinuteTaker'),
+                Field('tags','string',default=request.title,requires=IS_NOT_EMPTY(),label='Tags'),
                 Field('organiser','string',requires=IS_NOT_EMPTY(),label='Organiser'),
                 Field('organisations','string',requires=IS_NOT_EMPTY(),label='Organisations involved'),
                 Field('attendees','string',label='Attendees'),

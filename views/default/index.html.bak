@@ -8,10 +8,51 @@
               <p>{{=response.subtitle or ''}}</p>
         {{pass}}
       </div>
+        
+         <div class="hometext">
+            <h2>
+                Multiple <span class="mult">Templates.</span>
+            </h2><br>
+            With multiple preset templates your lives have already been made easier!
+            Choose from PTA meeting, Inter-Organisation meetings and Intra-Organisation meetings.
+            
+        </div>
+        <div class="hometext">
+            <h2>
+                <span class=pdf>Save as PDF</span>
+            </h2><br>
+            Now save your minutes in <span class=pdf>PDF</span> format with the exact template you choosed.
+            How do things get better?
+            <img src="{{=URL('static','images/pdf.png')}}" class="pdfimg"/>
+        </div>
+        <div class="hometext">
+            <h2>
+                Work without <span class="signin">signing</span> in
+            </h2><br>
+            No time to sign up or login? Work in the freestyle mode.
+            Access the same templates and save as PDF once done.
+        </div><br>
+        <div class="othertext">
+            With carefully monitored authentication framework not just the minute taker but also every registered attendee can view the minutes.
+            <span class=awesome>Now isn't that <span class="dodger">awesome</span> ?</span>
+        </div>
+        
+        <div class="start">
+            SignUp Today
+        </div>
     </header>
 {{else:}}
 <div class='main'>
-    <a href='{{URL(args=[page+1])}}' id='nextbutton'>Next Page</a>
+   <div style="position: absolute; top: 15px; left: 15px; font-size:1.5em">
+    {{if page:}}
+        <a href="{{=URL(args=[page-1])}}">Previous</a>
+    {{pass}}
+    </div>
+    <div style="position: absolute; top: 15px; right: 15px; font-size:1.5em">
+    {{if len(rows) > items_per_page:}}
+        <a href="{{=URL(args=[page+1])}}">Next</a>
+    {{pass}}
+    </div>
 </div>
 {{pass}}
 {{end}}

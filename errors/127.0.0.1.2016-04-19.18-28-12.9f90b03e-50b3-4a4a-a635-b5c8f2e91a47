@@ -1,0 +1,769 @@
+(dp1
+S'output'
+p2
+S"<class 'sqlite3.OperationalError'> no such table: meetings"
+p3
+sS'layer'
+p4
+S'/home/mayankmodi/web2py/applications/MeetingMinutes/controllers/default.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n# this file is released under public domain and you can use without limitations\n\n#########################################################################\n## This is a sample controller\n## - index is the default action of any application\n## - user is required for authentication and authorization\n## - download is for downloading files uploaded in the db (does streaming)\n#########################################################################\n\ndef index():\n    """\n    example action using the internationalization operator T and flash\n    rendered by views/default/index.html or views/generic.html\n\n    if you need a simple wiki simply replace the two lines below with:\n    return auth.wiki()\n    """\n    response.flash = T("Hello World")\n    return dict(message=T(\'Welcome to web2py!\'))\n\ndef minutes():\n    form=SQLFORM(db.meetings).process()\n    rows = db(db.meetings).select()\n    return locals()\n\ndef user():\n    """\n    exposes:\n    http://..../[app]/default/user/login\n    http://..../[app]/default/user/logout\n    http://..../[app]/default/user/register\n    http://..../[app]/default/user/profile\n    http://..../[app]/default/user/retrieve_password\n    http://..../[app]/default/user/change_password\n    http://..../[app]/default/user/bulk_register\n    use @auth.requires_login()\n        @auth.requires_membership(\'group name\')\n        @auth.requires_permission(\'read\',\'table name\',record_id)\n    to decorate functions that need access control\n    also notice there is http://..../[app]/appadmin/manage/auth to allow administrator to manage users\n    """\n    return dict(form=auth())\n\n\n@cache.action()\ndef download():\n    """\n    allows downloading of uploaded files\n    http://..../[app]/default/download/[filename]\n    """\n    return response.download(request, db)\n\n\ndef call():\n    """\n    exposes services. for example:\n    http://..../[app]/default/call/jsonrpc\n    decorate with @services.jsonrpc the functions to expose\n    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv\n    """\n    return service()\n\nresponse._vars=response._caller(minutes)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__module__'
+p12
+S"'sqlite3'"
+p13
+sS'__getslice__'
+p14
+S"<method-wrapper '__getslice__' of OperationalError object>"
+p15
+sS'__str__'
+p16
+S"<method-wrapper '__str__' of OperationalError object>"
+p17
+sS'__reduce__'
+p18
+S'<built-in method __reduce__ of OperationalError object>'
+p19
+sS'__dict__'
+p20
+S'{}'
+p21
+sS'__sizeof__'
+p22
+S'<built-in method __sizeof__ of OperationalError object>'
+p23
+sS'__weakref__'
+p24
+S'None'
+p25
+sS'__init__'
+p26
+S"<method-wrapper '__init__' of OperationalError object>"
+p27
+sS'__setattr__'
+p28
+S"<method-wrapper '__setattr__' of OperationalError object>"
+p29
+sS'__reduce_ex__'
+p30
+S'<built-in method __reduce_ex__ of OperationalError object>'
+p31
+sS'__new__'
+p32
+S'<built-in method __new__ of type object>'
+p33
+sS'__format__'
+p34
+S'<built-in method __format__ of OperationalError object>'
+p35
+sS'__class__'
+p36
+S"<class 'sqlite3.OperationalError'>"
+p37
+sS'__doc__'
+p38
+S'None'
+p39
+sS'__getitem__'
+p40
+S"<method-wrapper '__getitem__' of OperationalError object>"
+p41
+sS'__setstate__'
+p42
+S'<built-in method __setstate__ of OperationalError object>'
+p43
+sS'__getattribute__'
+p44
+S"<method-wrapper '__getattribute__' of OperationalError object>"
+p45
+sS'args'
+p46
+S"('no such table: meetings',)"
+p47
+sS'__subclasshook__'
+p48
+S'<built-in method __subclasshook__ of type object>'
+p49
+sS'__unicode__'
+p50
+S'<built-in method __unicode__ of OperationalError object>'
+p51
+sS'__delattr__'
+p52
+S"<method-wrapper '__delattr__' of OperationalError object>"
+p53
+sS'__repr__'
+p54
+S"<method-wrapper '__repr__' of OperationalError object>"
+p55
+sS'__hash__'
+p56
+S"<method-wrapper '__hash__' of OperationalError object>"
+p57
+ssS'evalue'
+p58
+S'no such table: meetings'
+p59
+sS'request'
+p60
+cgluon.html
+XML_unpickle
+p61
+(S's\x01n\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>MeetingMinutes</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>default</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-462791ad-8718-424d-9042-fec7bcf4e94d<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_cisi</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-c9ae76ce-7ced-40b8-a834-e07ade4243f4<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_cook</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-6cfa675d-e049-4d11-a36d-bb218c28748c<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_meetingminutes</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-78cb9685-0d3c-4631-a0c9-31d9504d5d8f<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_meetingminutesmaster</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-29cd2345-6bab-4d34-90d7-4d85fadcfb9c<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_welcome</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-cfe54d26-bee4-406e-84b7-946efd6e70fe<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.5</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CACHE_CONTROL</td><td style="vertical-align:top;">:</td><td><div>max-age=0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-cfe54d26-bee4-406e-84b7-946efd6e70fe; session_id_admin=127.0.0.1-462791ad-8718-424d-9042-fec7bcf4e94d; session_id_meetingminutesmaster=127.0.0.1-29cd2345-6bab-4d34-90d7-4d85fadcfb9c; session_id_meetingminutes=127.0.0.1-78cb9685-0d3c-4631-a0c9-31d9504d5d8f; session_id_cook=127.0.0.1-6cfa675d-e049-4d11-a36d-bb218c28748c; session_id_cisi=127.0.0.1-c9ae76ce-7ced-40b8-a834-e07ade4243f4</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_REFERER</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/MeetingMinutes/default/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:44.0) Gecko/20100101 Firefox/44.0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/MeetingMinutes/default/minutes</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>33140</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>mayankmodi-lenovo-g50-70</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/mayankmodi/web2py/applications/cIsI/&#x27;, &#x27;/home/mayankmodi/web2py/applications/welcome/&#x27;, &#x27;/home/mayankmodi/web2py/applications/MeetingMinutes/&#x27;, &#x27;/home/mayankmodi/web2py/applications/cook/&#x27;, &#x27;/home/mayankmodi/web2py/applications/MeetingMinutesmaster/&#x27;, &#x27;/home/mayankmodi/web2py/applications/admin/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/mayankmodi/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x7f47178f3518: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;127.0.1.1&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;scheduler_groups&#x27;: None, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;mayankmodi-lenovo-g50-70&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;print_errors&#x27;: False, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/home/mayankmodi/web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;&lt;ask&gt;&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/mayankmodi/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.5</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cache_control</td><td style="vertical-align:top;">:</td><td><div>max-age=0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-cfe54d26-bee4-406e-84b7-946efd6e70fe; session_id_admin=127.0.0.1-462791ad-8718-424d-9042-fec7bcf4e94d; session_id_meetingminutesmaster=127.0.0.1-29cd2345-6bab-4d34-90d7-4d85fadcfb9c; session_id_meetingminutes=127.0.0.1-78cb9685-0d3c-4631-a0c9-31d9504d5d8f; session_id_cook=127.0.0.1-6cfa675d-e049-4d11-a36d-bb218c28748c; session_id_cisi=127.0.0.1-c9ae76ce-7ced-40b8-a834-e07ade4243f4</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_referer</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/MeetingMinutes/default/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:44.0) Gecko/20100101 Firefox/44.0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>mayankmodi-lenovo-g50-70</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>mayankmodi-Lenovo-G50-70</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/MeetingMinutes/default/minutes</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>33140</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/MeetingMinutes/default/minutes</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>mayankmodi-lenovo-g50-70</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>/home/mayankmodi/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.13.4-stable+timestamp.2015.12.26.04.59.39</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x7f471bf8e1e0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x7f4717b1b188&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x7f47103f5750&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x7f471bf8e1e0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x7f4717b1b188&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x7f47103f5750&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>/home/mayankmodi/web2py/applications/MeetingMinutes/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>minutes</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/mayankmodi/web2py/applications/cIsI/&#x27;, &#x27;/home/mayankmodi/web2py/applications/welcome/&#x27;, &#x27;/home/mayankmodi/web2py/applications/MeetingMinutes/&#x27;, &#x27;/home/mayankmodi/web2py/applications/cook/&#x27;, &#x27;/home/mayankmodi/web2py/applications/MeetingMinutesmaster/&#x27;, &#x27;/home/mayankmodi/web2py/applications/admin/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/mayankmodi/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x7f47178f3518: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;127.0.1.1&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;scheduler_groups&#x27;: None, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;mayankmodi-lenovo-g50-70&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;print_errors&#x27;: False, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/home/mayankmodi/web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;&lt;ask&gt;&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/mayankmodi/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>mayankmodi-lenovo-g50-70</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>mayankmodi-Lenovo-G50-70</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.13.4-stable+timestamp.2015.12.26.04.59.39</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_scheduler</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_shell</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2016, 4, 19, 18, 28, 12, 729242)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_args</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_extension</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/MeetingMinutes/default/minutes</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2016, 4, 19, 12, 58, 12, 729310)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x7f46d295f9d0&gt;</div></td></tr></table></div>'
+tRp62
+sS'frames'
+p63
+(lp64
+(dp65
+S'file'
+p66
+S'/home/mayankmodi/web2py/gluon/restricted.py'
+p67
+sS'dump'
+p68
+(dp69
+S'environment'
+p70
+S"{'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'AppConfig': <function AppConfig>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, ...}"
+p71
+sS'ccode'
+p72
+S'<code object <module> at 0x7f46d29ed630, file "/.../MeetingMinutes/controllers/default.py", line 11>'
+p73
+ssS'lnum'
+p74
+I227
+sS'lines'
+p75
+(dp76
+I224
+S'            ccode = code'
+p77
+sI225
+S'        else:'
+p78
+sI226
+S'            ccode = compile2(code, layer)'
+p79
+sI227
+S'        exec ccode in environment'
+p80
+sI228
+S'    except HTTP:'
+p81
+sI229
+S'        raise'
+p82
+sI230
+S'    except RestrictedError:'
+p83
+sI231
+S'        # do not encapsulate (obfuscate) the original RestrictedError'
+p84
+sI222
+S'    try:'
+p85
+sI223
+S'        if isinstance(code, types.CodeType):'
+p86
+ssS'call'
+p87
+S"(code='# -*- coding: utf-8 -*-\\n# this file is released ...vice()\\n\\nresponse._vars=response._caller(minutes)\\n', environment={'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'AppConfig': <function AppConfig>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, ...}, layer='/home/mayankmodi/web2py/applications/MeetingMinutes/controllers/default.py')"
+p88
+sS'func'
+p89
+S'restricted'
+p90
+sa(dp91
+g66
+S'/home/mayankmodi/web2py/applications/MeetingMinutes/controllers/default.py'
+p92
+sg68
+(dp93
+sg74
+I64
+sg75
+(dp94
+I53
+S''
+sI54
+S''
+sI55
+S'def call():'
+p95
+sI56
+S'    """'
+p96
+sI57
+S'    exposes services. for example:'
+p97
+sI58
+S'    http://..../[app]/default/call/jsonrpc'
+p98
+sI59
+S'    decorate with @services.jsonrpc the functions to expose'
+p99
+sI60
+S'    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv'
+p100
+sI61
+S'    """'
+p101
+sI62
+S'    return service()'
+p102
+ssg87
+S'()'
+p103
+sg89
+S'<module>'
+p104
+sa(dp105
+g66
+S'/home/mayankmodi/web2py/gluon/globals.py'
+p106
+sg68
+(dp107
+S'self'
+p108
+S'undefined'
+p109
+sS'f'
+S'<function minutes>'
+p110
+ssg74
+I412
+sg75
+(dp111
+I416
+S"        self.generic_patterns = ['*']"
+p112
+sI407
+S"        self.flash = ''            # used by the default view layout"
+p113
+sI408
+S'        self.meta = Storage()      # used by web2py_ajax.html'
+p114
+sI409
+S'        self.menu = []             # used by the default view layout'
+p115
+sI410
+S'        self.files = []            # used by web2py_ajax.html'
+p116
+sI411
+S'        self._vars = None'
+p117
+sI412
+S'        self._caller = lambda f: f()'
+p118
+sI413
+S'        self._view_environment = None'
+p119
+sI414
+S'        self._custom_commit = None'
+p120
+sI415
+S'        self._custom_rollback = None'
+p121
+ssg87
+S'(f=<function minutes>)'
+p122
+sg89
+S'<lambda>'
+p123
+sa(dp124
+g66
+S'/home/mayankmodi/web2py/applications/MeetingMinutes/controllers/default.py'
+p125
+sg68
+(dp126
+S'global db'
+p127
+S'<DAL uri="sqlite://storage.sqlite">'
+p128
+sS'rows'
+p129
+g109
+sS'db.meetings'
+p130
+S'<Table meetings (id,title,tags,organiser,organisations,attendees,loc,time_stamp)>'
+p131
+sS').select'
+p132
+g109
+ssg74
+I24
+sg75
+(dp133
+I19
+S'    response.flash = T("Hello World")'
+p134
+sI20
+S"    return dict(message=T('Welcome to web2py!'))"
+p135
+sI21
+S''
+sI22
+S'def minutes():'
+p136
+sI23
+S'    form=SQLFORM(db.meetings).process()'
+p137
+sI24
+S'    rows = db(db.meetings).select()'
+p138
+sI25
+S'    return locals()'
+p139
+sI26
+S''
+sI27
+S'def user():'
+p140
+sI28
+S'    """'
+p141
+ssg87
+S'()'
+p142
+sg89
+S'minutes'
+p143
+sa(dp144
+g66
+S'/home/mayankmodi/web2py/gluon/packages/dal/pydal/objects.py'
+p145
+sg68
+(dp146
+S'self.query'
+p147
+S'<Query (meetings.id IS NOT NULL)>'
+p148
+sS'adapter.select'
+p149
+S'<bound method SQLiteAdapter.select of <pydal.adapters.sqlite.SQLiteAdapter object>>'
+p150
+sS'fields'
+p151
+S'[<pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>]'
+p152
+sS'adapter'
+p153
+S'<pydal.adapters.sqlite.SQLiteAdapter object>'
+p154
+sS'attributes'
+p155
+g21
+sS'self'
+p156
+S'<Set (meetings.id IS NOT NULL)>'
+p157
+ssg74
+I2025
+sg75
+(dp158
+I2020
+S"                                    attributes.get('join',None),"
+p159
+sI2021
+S"                                    attributes.get('left',None),"
+p160
+sI2022
+S"                                    attributes.get('orderby',None),"
+p161
+sI2023
+S"                                    attributes.get('groupby',None))"
+p162
+sI2024
+S'        fields = adapter.expand_all(fields, tablenames)'
+p163
+sI2025
+S'        return adapter.select(self.query,fields,attributes)'
+p164
+sI2026
+S''
+sI2027
+S'    def iterselect(self, *fields, **attributes):'
+p165
+sI2028
+S'        adapter = self.db._adapter'
+p166
+sI2029
+S'        tablenames = adapter.tables(self.query,'
+p167
+ssg87
+S'(self=<Set (meetings.id IS NOT NULL)>, *fields=[<pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>], **attributes={})'
+p168
+sg89
+S'select'
+p169
+sa(dp170
+g66
+S'/home/mayankmodi/web2py/gluon/packages/dal/pydal/adapters/sqlite.py'
+p171
+sg68
+(dp172
+S'fields'
+p173
+S'[<pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>]'
+p174
+sS'self'
+p175
+S'<pydal.adapters.sqlite.SQLiteAdapter object>'
+p176
+sS').select'
+p177
+S'<bound method SQLiteAdapter.select of <pydal.adapters.sqlite.SQLiteAdapter object>>'
+p178
+sS'attributes'
+p179
+g21
+sS'global SQLiteAdapter'
+p180
+S"<class 'pydal.adapters.sqlite.SQLiteAdapter'>"
+p181
+sS'query'
+p182
+S'<Query (meetings.id IS NOT NULL)>'
+p183
+sS'builtinsuper'
+p184
+S"<type 'super'>"
+p185
+ssg74
+I124
+sg75
+(dp186
+I128
+S"    'Windows':'mod_spatialite.dll',"
+p187
+sI119
+S'        Note that the entire database, rather than one record, is locked'
+p188
+sI120
+S'        (it will be locked eventually anyway by the following UPDATE).'
+p189
+sI121
+S'        """'
+p190
+sI122
+S"        if attributes.get('for_update', False) and not 'cache' in attributes:"
+p191
+sI123
+S"            self.execute('BEGIN IMMEDIATE TRANSACTION;')"
+p192
+sI124
+S'        return super(SQLiteAdapter, self).select(query, fields, attributes)'
+p193
+sI125
+S''
+sI126
+S''
+sI127
+S'SPATIALLIBS = {'
+p194
+ssg87
+S'(self=<pydal.adapters.sqlite.SQLiteAdapter object>, query=<Query (meetings.id IS NOT NULL)>, fields=[<pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>], attributes={})'
+p195
+sg89
+g169
+sa(dp196
+g66
+S'/home/mayankmodi/web2py/gluon/packages/dal/pydal/adapters/base.py'
+p197
+sg68
+(dp198
+S'fields'
+p199
+S'[<pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>]'
+p200
+sS'self'
+p201
+S'<pydal.adapters.sqlite.SQLiteAdapter object>'
+p202
+sS'attributes'
+p203
+g21
+sS'self._select_aux'
+p204
+S'<bound method SQLiteAdapter._select_aux of <pydal.adapters.sqlite.SQLiteAdapter object>>'
+p205
+sS'sql'
+p206
+S"'SELECT  meetings.id, meetings.title, meetings.ta...mp FROM meetings WHERE (meetings.id IS NOT NULL);'"
+p207
+ssg74
+I1293
+sg75
+(dp208
+I1288
+S'            return cache_model('
+p209
+sI1289
+S'                key,'
+p210
+sI1290
+S'                lambda self=self,args=args:self._select_aux(*args),'
+p211
+sI1291
+S'                time_expire)'
+p212
+sI1292
+S'        else:'
+p213
+sI1293
+S'            return self._select_aux(sql,fields,attributes)'
+p214
+sI1294
+S''
+sI1295
+S'    def iterselect(self, query, fields, attributes):'
+p215
+sI1296
+S'        sql = self._select(query, fields, attributes)'
+p216
+sI1297
+S"        cacheable = attributes.get('cacheable', False)"
+p217
+ssg87
+S'(self=<pydal.adapters.sqlite.SQLiteAdapter object>, query=<Query (meetings.id IS NOT NULL)>, fields=[<pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>], attributes={})'
+p218
+sg89
+g169
+sa(dp219
+g66
+S'/home/mayankmodi/web2py/gluon/packages/dal/pydal/adapters/base.py'
+p220
+sg68
+(dp221
+S'self'
+p222
+S'<pydal.adapters.sqlite.SQLiteAdapter object>'
+p223
+sS'self.execute'
+p224
+S'<bound method SQLiteAdapter.execute of <pydal.adapters.sqlite.SQLiteAdapter object>>'
+p225
+sS'sql'
+p226
+S"'SELECT  meetings.id, meetings.title, meetings.ta...mp FROM meetings WHERE (meetings.id IS NOT NULL);'"
+p227
+ssg74
+I1250
+sg75
+(dp228
+I1248
+S"        cache = args_get('cache',None)"
+p229
+sI1249
+S'        if not cache:'
+p230
+sI1250
+S'            self.execute(sql)'
+p231
+sI1251
+S'            rows = self._fetchall()'
+p232
+sI1252
+S'        else:'
+p233
+sI1253
+S'            if isinstance(cache, dict):'
+p234
+sI1254
+S"                cache_model = cache['model']"
+p235
+sI1245
+S''
+sI1246
+S'    def _select_aux(self, sql, fields, attributes):'
+p236
+sI1247
+S'        args_get = attributes.get'
+p237
+ssg87
+S"(self=<pydal.adapters.sqlite.SQLiteAdapter object>, sql='SELECT  meetings.id, meetings.title, meetings.ta...mp FROM meetings WHERE (meetings.id IS NOT NULL);', fields=[<pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>], attributes={})"
+p238
+sg89
+S'_select_aux'
+p239
+sa(dp240
+g66
+S'/home/mayankmodi/web2py/gluon/packages/dal/pydal/adapters/base.py'
+p241
+sg68
+(dp242
+S'a'
+S"('SELECT  meetings.id, meetings.title, meetings.ta...mp FROM meetings WHERE (meetings.id IS NOT NULL);',)"
+p243
+sS'self'
+p244
+S'<pydal.adapters.sqlite.SQLiteAdapter object>'
+p245
+sS'b'
+g21
+sS'self.log_execute'
+p246
+S'<bound method SQLiteAdapter.log_execute of <pydal.adapters.sqlite.SQLiteAdapter object>>'
+p247
+ssg74
+I1385
+sg75
+(dp248
+I1380
+S'        self.db._timings.append((command,time.time()-t0))'
+p249
+sI1381
+S'        del self.db._timings[:-TIMINGSSIZE]'
+p250
+sI1382
+S'        return ret'
+p251
+sI1383
+S''
+sI1384
+S'    def execute(self, *a, **b):'
+p252
+sI1385
+S'        return self.log_execute(*a, **b)'
+p253
+sI1386
+S''
+sI1387
+S'    def execute_test_query(self):'
+p254
+sI1388
+S'        return self.execute(self.test_query)'
+p255
+sI1389
+S''
+ssg87
+S"(self=<pydal.adapters.sqlite.SQLiteAdapter object>, *a=('SELECT  meetings.id, meetings.title, meetings.ta...mp FROM meetings WHERE (meetings.id IS NOT NULL);',), **b={})"
+p256
+sg89
+S'execute'
+p257
+sa(dp258
+g66
+S'/home/mayankmodi/web2py/gluon/packages/dal/pydal/adapters/base.py'
+p259
+sg68
+(dp260
+S'a'
+S"('SELECT  meetings.id, meetings.title, meetings.ta...mp FROM meetings WHERE (meetings.id IS NOT NULL);',)"
+p261
+sS'b'
+g21
+sS'self'
+p262
+S'<pydal.adapters.sqlite.SQLiteAdapter object>'
+p263
+sS'ret'
+p264
+g109
+sS'command'
+p265
+S"'SELECT  meetings.id, meetings.title, meetings.ta...mp FROM meetings WHERE (meetings.id IS NOT NULL);'"
+p266
+sS'self.get_cursor'
+p267
+S'<bound method SQLiteAdapter.get_cursor of <pydal.adapters.sqlite.SQLiteAdapter object>>'
+p268
+sS').execute'
+p269
+g109
+ssg74
+I1379
+sg75
+(dp270
+I1376
+S"            self.db.logger.debug('SQL: %s' % command)"
+p271
+sI1377
+S'        self.db._lastsql = command'
+p272
+sI1378
+S'        t0 = time.time()'
+p273
+sI1379
+S'        ret = self.get_cursor().execute(command, *a[1:], **b)'
+p274
+sI1380
+S'        self.db._timings.append((command,time.time()-t0))'
+p275
+sI1381
+S'        del self.db._timings[:-TIMINGSSIZE]'
+p276
+sI1382
+S'        return ret'
+p277
+sI1383
+S''
+sI1374
+S'            command = self.filter_sql_command(command)'
+p278
+sI1375
+S'        if self.db._debug:'
+p279
+ssg87
+S"(self=<pydal.adapters.sqlite.SQLiteAdapter object>, *a=('SELECT  meetings.id, meetings.title, meetings.ta...mp FROM meetings WHERE (meetings.id IS NOT NULL);',), **b={})"
+p280
+sg89
+S'log_execute'
+p281
+sasS'pyver'
+p282
+S'Python 2.7.9: /usr/bin/python (prefix: /usr)'
+p283
+sS'session'
+p284
+g61
+(S's\x0f\n\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">auth</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">expiration</td><td style="vertical-align:top;">:</td><td><div>3600</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">hmac_key</td><td style="vertical-align:top;">:</td><td><div>f92a07e9-727b-4280-a257-f0b3cc12dde4</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_visit</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2016, 4, 19, 18, 26, 55, 55995)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">Name</td><td style="vertical-align:top;">:</td><td><div>mayank modi</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">Organisation</td><td style="vertical-align:top;">:</td><td><div>Maverick</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">Phone_number</td><td style="vertical-align:top;">:</td><td><div>9052447804.0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">Username</td><td style="vertical-align:top;">:</td><td><div>MaverickMe</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">abc</td><td style="vertical-align:top;">:</td><td><div>Andhra Pradesh</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">email</td><td style="vertical-align:top;">:</td><td><div>fireball4556@gmail.com</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">id</td><td style="vertical-align:top;">:</td><td><div>4L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">registration_id</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">registration_key</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">reset_password_key</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user_groups</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">4</td><td style="vertical-align:top;">:</td><td><div>user_4</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr></table></div>'
+tRp285
+sS'etype'
+p286
+S"<class 'sqlite3.OperationalError'>"
+p287
+sS'date'
+p288
+S'Tue Apr 19 18:28:12 2016'
+p289
+sS'response'
+p290
+g61
+(S's\t\x1f\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x7f46d29eec00&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_meetingminutes</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-78cb9685-0d3c-4631-a0c9-31d9504d5d8f<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">form_label_separator</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">formstyle</td><td style="vertical-align:top;">:</td><td><div>bootstrap3_inline</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>*</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">google_analytics_id</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">logo</td><td style="vertical-align:top;">:</td><td><div><a class="navbar-brand" href="/MeetingMinutes/default/index" id="web2py-logo"><b>Meeting<span>Master</span></b>&trade;&nbsp;</a></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div><table><tr><td><div>My Meetings</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/MeetingMinutes/default/site</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>New Meeting</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/MeetingMinutes/default/minutes</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">author</td><td style="vertical-align:top;">:</td><td><div>Your Name &lt;you@example.com&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">description</td><td style="vertical-align:top;">:</td><td><div>a cool new app</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generator</td><td style="vertical-align:top;">:</td><td><div>Web2py Web Framework</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">keywords</td><td style="vertical-align:top;">:</td><td><div>web2py, python, framework</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^default/\\w+\\.py$</div></td></tr><tr><td><div>^default/minutes/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_key</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_meetingminutes</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_file</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;/home/mayankmodi/web2py/applications/MeetingMinutes/sessions/110/0fb/127.0.0.1-78cb9685-0d3c-4631-a0c9-31d9504d5d8f&#x27;, mode &#x27;rb+&#x27; at 0x7f46d2b08300&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>/home/mayankmodi/web2py/applications/MeetingMinutes/sessions/127.0.0.1-78cb9685-0d3c-4631-a0c9-31d9504d5d8f</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>1fdb089c72cf533f0d3c5a49d5928b14</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-78cb9685-0d3c-4631-a0c9-31d9504d5d8f</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_meetingminutes</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_locked</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>MeetingMinutes</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">subtitle</td><td style="vertical-align:top;">:</td><td><div>Thousands of users use MeetingMaster to sort out their agendas, distribute them among colleagues and arrange more meetings.</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">title</td><td style="vertical-align:top;">:</td><td><div>Because Minutes Matter</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>default/minutes.html</div></td></tr></table></div>'
+tRp291
+sS'locals'
+p292
+(dp293
+S'a'
+S"('SELECT  meetings.id, meetings.title, meetings.ta...mp FROM meetings WHERE (meetings.id IS NOT NULL);',)"
+p294
+sS'self'
+p295
+S'<pydal.adapters.sqlite.SQLiteAdapter object>'
+p296
+sS'b'
+g21
+sS'command'
+p297
+S"'SELECT  meetings.id, meetings.title, meetings.ta...mp FROM meetings WHERE (meetings.id IS NOT NULL);'"
+p298
+sS't0'
+p299
+S'1461070692.784511'
+p300
+sssS'traceback'
+p301
+S'Traceback (most recent call last):\n  File "/home/mayankmodi/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/mayankmodi/web2py/applications/MeetingMinutes/controllers/default.py", line 64, in <module>\n  File "/home/mayankmodi/web2py/gluon/globals.py", line 412, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/mayankmodi/web2py/applications/MeetingMinutes/controllers/default.py", line 24, in minutes\n    rows = db(db.meetings).select()\n  File "/home/mayankmodi/web2py/gluon/packages/dal/pydal/objects.py", line 2025, in select\n    return adapter.select(self.query,fields,attributes)\n  File "/home/mayankmodi/web2py/gluon/packages/dal/pydal/adapters/sqlite.py", line 124, in select\n    return super(SQLiteAdapter, self).select(query, fields, attributes)\n  File "/home/mayankmodi/web2py/gluon/packages/dal/pydal/adapters/base.py", line 1293, in select\n    return self._select_aux(sql,fields,attributes)\n  File "/home/mayankmodi/web2py/gluon/packages/dal/pydal/adapters/base.py", line 1250, in _select_aux\n    self.execute(sql)\n  File "/home/mayankmodi/web2py/gluon/packages/dal/pydal/adapters/base.py", line 1385, in execute\n    return self.log_execute(*a, **b)\n  File "/home/mayankmodi/web2py/gluon/packages/dal/pydal/adapters/base.py", line 1379, in log_execute\n    ret = self.get_cursor().execute(command, *a[1:], **b)\nOperationalError: no such table: meetings\n'
+p302
+s.
