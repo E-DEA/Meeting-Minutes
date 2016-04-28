@@ -118,6 +118,8 @@ auth.settings.reset_password_requires_verification = True
 ## >>> rows=db(db.mytable.myfield=='value').select(db.mytable.ALL)
 ## >>> for row in rows: print row.id, row.myfield
 #########################################################################
+if auth.user:
+    defname = auth.user.Name
 
 db.define_table('Meetings',
                 Field('title','string',requires=IS_NOT_EMPTY(),label='Title'),
