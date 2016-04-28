@@ -1,0 +1,9 @@
+{{extend 'layout.html'}}
+<div class='search'>
+                {{=form}}
+    {{if auth.user:}}
+    <a class='searchid' href="{{=URL('searchmymeeting')}}">Search My Meetings</a>
+    <a class='searchid' href="{{=URL('searchmeeting')}}">Search Other Meetings</a>
+    {{pass}}
+</div-->
+{{=target_div}}

@@ -1,5 +1,8 @@
 {{extend 'layout.html'}}
-
+<div id='target'>
+   {{=A('search', _href=URL('search'))}}<br />
+    {{=A('listall', _href=URL('index'))}
+</div>
 <h2 id='specialid'>
 {{=T('Sign Up') if request.args(0) == 'register' else T('Sign In') if request.args(0) == 'login' else T(request.args(0).replace('_',' ').title())}}
 </h2>
@@ -10,7 +13,7 @@
         {{
         if request.args(0)=='login':
             if not 'register' in auth.settings.actions_disabled:
-                form.add_button(T('Sign Up'),URL(args='register', vars={'_next': request.vars._next} if request.vars._next else None),_class='btn btn-default')
+                form.add_button(T('Sign Up'),URL(args='register', vars={'_next': request.vars._next} if request.vars._next else None),_class='btn btn-default specialclass')
             pass
         pass
         =form

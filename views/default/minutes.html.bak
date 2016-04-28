@@ -1,5 +1,11 @@
 {{extend 'layout.html'}}
-<div id='toPrint'>
-{{=interform}}
-<button class="btn anim" id="savepdfbtn">Print this page.</button>
+<div id="Content">
+    {{for i,row in enumerate(rows):}}
+        {{if i==items_per_page: break}}
+            <div>
+                {{=(A(rows[i].Title,_href=URL('show',args=(rows[i].id,rows[i].templateid))))}}<br/>
+            <div style="color:gray; overflow-x:hidden; width:auto"></div>
+        {{pass}}
+    {{pass}}
 </div>
+<a href="javascript:demoFromHTML()" class="button"><button id="savepdfbtn">Print this page.</button></a>

@@ -9,7 +9,9 @@
         {{pass}}
       </div>
     </header>
-{{pass}}
 {{else:}}
+<div class='main'>
+    <a href='{{URL(args=[page+1])}}' id='nextbutton'>Next Page</a>
+</div>
 {{pass}}
 {{end}}

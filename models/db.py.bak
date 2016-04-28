@@ -61,11 +61,11 @@ db.define_table(
     auth.settings.table_user_name,
     Field('Name',length=128,default='',requires=IS_NOT_EMPTY(error_message=auth.messages.is_empty)),
     Field('email', length=128, default='', requires=IS_EMAIL(error_message='Invalid email address'),unique=True),
-    Field('Username',default='', requires = IS_ALPHANUMERIC(error_message='Must be alphanumeric') and IS_NOT_EMPTY(error_message='Username cannot be empty') and IS_NOT_IN_DB(db, 'auth.settings.table_user_name.Username') ),
+    Field('Username',default='', requires = IS_ALPHANUMERIC(error_message='Must be alphanumeric') and IS_NOT_EMPTY(error_message='Username cannot be empty') and IS_NOT_IN_DB(db, 'auth_user.Username') ),
     Field('password', 'password', length=512,readable=False,requires = IS_STRONG(min=8, special=1,upper=1),label='Password'),
-    Field('Organisation','string',length=128),
-    Field('abc', 'string',label='State',default='None',requires = IS_IN_SET([('Andhra Pradesh'),('Arunachal Pradesh'),('Assam'),('Bihar'),('Chattisgarh'),('Goa'),('Gujarat'),('Haryana'),('Himachal Pradesh'),('Jammu & Kashmir'),('Jharkhand'),('Karnataka'),('Kerala'),('Madhya Pradesh'),('Maharashtra'),('Manipur'),('Meghalaya'),('Mizoram'),('Nagaland'),('Odisha(Orissa)'),('Punjab'),('Rajashtan'),('Sikkim'),('Tamil Nadu'),('Telangana'),('Tripura'),('Uttar Pradesh'),('Uttarakhand'),('West Bengal')])),
-    Field('Phone_number', 'integer', length=10),
+    Field('Organisation','string',requires=IS_NOT_EMPTY(error_message='Organisation cannot be empty'),length=128),
+    Field('abc', 'string',label='State/Union Territory',default='None',requires = IS_IN_SET([('Andaman & Nicobar Islands'),('Andhra Pradesh'),('Arunachal Pradesh'),('Assam'),('Bihar'),('Chandigarh'),('Chattisgarh'),('Dadra & Nagar Haveli'),('New Delhi(NCR)'),('Daman & Diu'),('Goa'),('Gujarat'),('Haryana'),('Himachal Pradesh'),('Jammu & Kashmir'),('Jharkhand'),('Karnataka'),('Kerala'),('Lakshadweep'),('Madhya Pradesh'),('Maharashtra'),('Manipur'),('Meghalaya'),('Mizoram'),('Nagaland'),('Odisha(Orissa)'),('Pondicherry(Puducherry)'),('Punjab'),('Rajashtan'),('Sikkim'),('Tamil Nadu'),('Telangana'),('Tripura'),('Uttar Pradesh'),('Uttarakhand'),('West Bengal')])),
+    Field('Phone_number', 'string',requires=IS_LENGTH(10) or IS_LENGTH(7)),
     Field('registration_key', length=512,writable=False, readable=False, default=''),
     Field('reset_password_key', length=512,writable=False, readable=False, default=''),
     Field('registration_id', length=512,writable=False, readable=False, default=''))
@@ -118,22 +118,27 @@ auth.settings.reset_password_requires_verification = True
 ## >>> rows=db(db.mytable.myfield=='value').select(db.mytable.ALL)
 ## >>> for row in rows: print row.id, row.myfield
 #########################################################################
+if auth.user:
+    defname = auth.user.Name
 
 db.define_table('Meetings',
                 Field('title','string',requires=IS_NOT_EMPTY(),label='Title'),
+                Field('chair','string',requires=IS_NOT_EMPTY(),label='Chaired By'),
                 Field('minutetaker',default='',writable=True,requires=IS_NOT_EMPTY(),label='MinuteTaker'),
                 Field('tags','string',default=request.title,requires=IS_NOT_EMPTY(),label='Tags'),
                 Field('organiser','string',requires=IS_NOT_EMPTY(),label='Organiser'),
-                #Field('organisations','string',requires=IS_NOT_EMPTY(),label='Organisations involved'),
+                Field('organisations','string',requires=IS_NOT_EMPTY(),label='Organisations involved'),
                 Field('attendees','string',label='Attendees'),
-                Field('loc','text',label='Location'),
-                Field('time_stamp','datetime',default=request.now,writable=True,label='Time')
+                Field('loc','string',label='Location'),
+                Field('agenda','text',default='Write agenda topics seperated by three fullstops(...)',label='Agenda Topics'),
+                Field('templateid','integer',readable=False,writable=True,default='1',requires=IS_IN_SET([1,2,3]),label='Template ID'),
+                Field('dt','date',default=request.now,writable=True,label='Date')
                )
 db.define_table('Organisation',
                 Field('name','string',requires=IS_NOT_EMPTY(),label='Name'),
                 Field('meetings','string',default=request.post_vars.title,requires=IS_IN_DB(db,'Meetings.title',multiple=True),label='Meetings'),
-                Field('employees','string',requires=IS_NOT_EMPTY() and IS_IN_DB(db,'custom_auth_table.Name',multiple=True)),
-                Field('admn',requires=IS_NOT_EMPTY() and IS_IN_DB(db,'custom_auth_table.Name',multiple=True),label='Administrator')
+                Field('employees','string',requires=IS_NOT_EMPTY() and IS_IN_DB(db,'auth_user.Name',multiple=True)),
+                Field('admn',default='None',requires=IS_NOT_EMPTY() and IS_IN_DB(db,'auth_user.Name',multiple=True),label='Administrator')
                )
 ## after defining tables, uncomment below to enable auditing
 auth.enable_record_versioning(db)

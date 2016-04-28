@@ -34,10 +34,18 @@ def _():
     # shortcuts
     app = request.application
     ctr = request.controller
+    response.menu1=[]
+    response.menu2=[]
     # useful links to internal and external resources
-    response.menu += [
+    response.menu1 += [
         (T('My Meetings'), False, URL('default', 'minutes')),
+        (T('Make a Meeting Minute'),'False',URL('default','templates')),
+        (T('Search MeetingMaster'),'False',URL('default','searchmeeting'))
         ]
+    response.menu2 += [
+        (T('Make A Meeting Minute'),'False', URL('default','templates')),
+        (T('Search An Organisation'), 'False',URL('default','searchorg'))
+    ]
 if DEVELOPMENT_MENU: _()
 
 if "auth" in locals(): auth.wikimenu()

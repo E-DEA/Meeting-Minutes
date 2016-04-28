@@ -1,0 +1,5 @@
+{{extend 'layout.html'}}
+<h1 style="text-align:center">Choose A Template</h1>
+<a href="{{=URL('formpage',args=1)}}"><img />Template1</a>
+<a href="{{=URL('formpage',args=1)}}"><img />Template2</a>
+<a href="{{=URL('formpage',args=1)}}"><img />Template3</a>

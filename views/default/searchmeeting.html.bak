@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+<div class='search'>
+                {{=form}}
+    <a class='searchid' href="{{=URL('searchorg')}}">Search Organisations</a>
+    <a class='searchid' href="{{=URL('searchmymeetings')}}">Search My Meetings</a>
+</div-->
+{{=target_div}}

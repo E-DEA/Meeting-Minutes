@@ -10,5 +10,17 @@
       </div>
     </header>
 {{else:}}
+<div class='main'>
+   <div style="position: absolute; top: 15px; left: 15px; font-size:1.5em">
+    {{if page:}}
+        <a href="{{=URL(args=[page-1])}}">Previous</a>
+    {{pass}}
+    </div>
+    <div style="position: absolute; top: 15px; right: 15px; font-size:1.5em">
+    {{if len(rows) > items_per_page:}}
+        <a href="{{=URL(args=[page+1])}}">Next</a>
+    {{pass}}
+    </div>
+</div>
 {{pass}}
 {{end}}
