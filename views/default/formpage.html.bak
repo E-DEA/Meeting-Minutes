@@ -1,3 +1,5 @@
 {{extend 'layout.html'}}
-<h2>Please fill up the details.</h2>
+<h2 id='specialid'>Details of Meeting</h2>
+<div>
 {{=form}}
+</div>

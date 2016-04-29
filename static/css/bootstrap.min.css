@@ -19,13 +19,6 @@ body
 {
     padding-top:0px;
 }
-.container-fluid
-{
-        background-color:rgb(251,251,251);
-    #margin-right:2%;
-    #margin-left:2%;
-
-}
 #id1 > li > a
 {
     background-image: linear-gradient(#fcfcfc, #eee);

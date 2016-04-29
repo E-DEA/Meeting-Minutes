@@ -2,8 +2,8 @@
 <html>
 <head>
         <meta charset="UTF-8">
-      <link rel="stylesheet" href="{{=URL('static','css/temp.css')}}"/>
-        <title>PTA</title>
+        <link rel="stylesheet" href="{{=URL('static','css/teintra.css')}}"/>
+        <title>Intra-Organisation</title>
     <script src="http://mrrio.github.io/jsPDF/dist/jspdf.debug.js"></script>
       <script>
     function demoFromHTML() {
@@ -49,53 +49,59 @@
 </head>
 
 <body>
-    <div id="content">
-<!--img src="{{=URL('static','/images/logo.png')}}" class='logo'-->
-	<center><div class=heading>PTA Meeting<br></div>
+<img src="{{=URL('static','/images/logo.png')}}" class='logo'>
+	<center><div class=heading>Intra-Organisation Meet<br></div>
 	<br>
-	<hr color="orange" width=84%>
-	Organisation-school_name<sub>(location)</sub></center>
+	<hr color="purple" width=84%>
+	Organisation_name<sub>(location)</sub></center>
 	<br>
 	<center>
+	<div class="detailbackground">
 	<ul class=details>
 <li>
-<div class=heade>Title:</div>___________________________<br><br>
+<div class=heade id=title>Title:</div><span class=titleinp>((title))</span>
 </li>
 <li>
-<div class=heade >Minute Taker:</div>___________________________<br><br>
+<div class=heade>Chair:</div><span class=chairinp>((chair))</span>
 </li>
 <li>
-<div class=heade >Tags:</div>___________________________<br><br>
+<div class=heade >Minute Taker:</div><span class=mintakerinp>((mintaker))</span>
 </li>
 <li>
-<div class=heade >Attendees:</div>___________________________<br><br>
+<div class=heade >Tags:</div><span class=taginp>((tags))</span>
 </li>
 <li>
-<div class=heade >Location:</div>___________________________<br><br>
+<div class=heade >Attendees:</div><span class=attendeesinp>((attendees))</span>
 </li>
 <li>
-<div class=heade >Date:</div>___________________________<br><br>
+<div class=heade >Location:</div><span class=locinp>((location))</span>
+</li>
+<li>
+<div class=heade >Date:</div><span class=dateinp>((date))</span>
 </li>
 </ul>
 </center>
 <br>
+</div>
+<div class="allnotes">
+	<div class=note>
+		<div class=data>{TIME}:<center>
 
-	<div class=note background-color="orange">
-	<center>
-			{TIME}:__________________________________________________________________________________________________________________________
-			<br>
-			________________________________________________________________
-			_________________________________________________________________</center>
+			((text))
+				<br>
+			((text))
+				<br>
+					</center>
 
+		</div>
 	</div>
 
-	<div class=note background-color="orange">
-	{TIME}:<center>
-(text)
-	</center>
+	<div class=note>
+		<div class=data>{TIME}:<center>
+			(text)
+					</center>
+		</div>
 	</div>
-    </div>
-    <a href="javascript:demoFromHTML()" class="button"><button id="savepdfbtn">Print this page.</button></a>
+</div>
 </body>
-    <a href="javascript:demoFromHTML()" class="button"><button id="savepdfbtn">Print this page.</button></a>
 </html>

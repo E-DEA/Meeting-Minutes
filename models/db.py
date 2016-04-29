@@ -123,11 +123,10 @@ if auth.user:
 else:
     defname=""
 db.define_table('Meetings',
-                Field('title','string',requires=IS_NOT_EMPTY(),label='Title'),
-                Field('chair','string',requires=IS_NOT_EMPTY(),label='Chaired By'),
-                Field('tags','string',requires=IS_NOT_EMPTY(),label='Tags'),
+                Field('title','string',requires=IS_NOT_EMPTY(error_message="Meeting title cannot be empty"),label='Title'),
+                Field('chair','string',requires=IS_NOT_EMPTY(error_message="Field cannot be empty"),label='Chaired By'),
+                Field('tags','string',default='Put up tags here to identify your Meeting.',label='Tags'),
                 Field('minutetaker',default=defname,writable=True,requires=IS_NOT_EMPTY(),label='MinuteTaker'),
-                Field('tags','string',default=request.title,requires=IS_NOT_EMPTY(),label='Tags'),
                 Field('organiser','string',requires=IS_NOT_EMPTY(),label='Organiser'),
                 Field('organisations','string',requires=IS_NOT_EMPTY(),label='Organisations involved'),
                 Field('attendees','string',label='Attendees'),

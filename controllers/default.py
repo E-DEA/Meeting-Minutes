@@ -132,3 +132,7 @@ def formpage():
         db.Meetings.templateid[-1] = request.args[0]
         redirect(URL('show',args=[db.Meetings.id[-1],'Meeting']))
     return dict(form=form)
+def pta():
+    return locals()
+def intra():
+    return locals()

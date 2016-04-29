@@ -50,7 +50,7 @@
 
 <body>
     <div id="content">
-<!--img src="{{=URL('static','/images/logo.png')}}" class='logo'-->
+<img src="{{=URL('static','/images/logo.png')}}" class='logo'>
 	<center><div class=heading>PTA Meeting<br></div>
 	<br>
 	<hr color="orange" width=84%>
